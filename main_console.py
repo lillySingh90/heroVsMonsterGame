@@ -33,8 +33,9 @@ dragon = threading.Thread(target=thread_dragon)
 orc.start()
 dragon.start()
 
+# main user loop
 while hero_health > 0 and orc_health > 0 and dragon_health > 0:
-    var = input("whom to attack")
+    var = input("attack ")
     if var == "orc":
         orc_health = orc_health - 2
         print("Hero attack Orc ... Orc health is ", str(orc_health))
@@ -42,6 +43,7 @@ while hero_health > 0 and orc_health > 0 and dragon_health > 0:
         dragon_health = dragon_health - 2
         print("Hero attack dragon ... Dragon health is ", str(dragon_health))
 
+# Wait for threads to finish
 orc.join()
 dragon.join()
 
